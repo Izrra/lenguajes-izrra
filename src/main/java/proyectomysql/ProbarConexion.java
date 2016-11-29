@@ -15,6 +15,10 @@ public class ProbarConexion {
             try{
                 Connection con=Conexion.conectarse();
                 System.out.println("Conectado a mysql");
+                PreparedStatement p= con.prepareStatement("insert into hola(nombre, edad) values(?,?");
+                p.setInt(2, 10);
+                p.setString(1,"Ana");
+                int id=p.executeUpdate();
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }
